@@ -1,0 +1,109 @@
+   //方法一：获取某个下标下的字符
+        // str.key = collection[i].substring(0,1);
+        // str.count = parseInt(collection[i].substring(2));
+        
+       　//方法二：将特殊字符拆分，拆分后放在新数组里面，再访问某个下标下的字符
+        //  newArraystr = collection[i].split("");
+        //  str.key = newArraystr[0];
+        //  str.count = parseInt(newArraystr[2]);
+        
+        //方法三：直接用下标访问字符串元素里面的某个字符，注意访问的结果都是字符串，要用parseInt()获取数字
+        
+          
+          
+// function count_same_elements(collection) {
+//      var newArray = [];
+//      var resp = /-/;
+//      var resq = /[/\d/]/;
+//      var resr = /:/;
+//    for(var i = 0; i < collection.length; i++) 
+//    {
+//       var str = {};
+//       var item = collection[i];
+//       if(isExist(item,newArray) === false){//如果新数组中元素不存在就添加
+//          if(resp.test(item) || resq.test(item) || resr.test(item)){
+//       　　　 str.name = item[0];
+//             str.summary = parseInt(item.substring(2));//这儿一定要是注意，在获取数字时，如果是两位数的，就要写substring的第二个参数
+//             newArray.push(str);
+//       }
+//       else{
+//         str.name = item;
+//         str.summary = 1;
+//         newArray.push(str);
+//       }
+//      }
+//    }
+//    return newArray;
+//  }
+// function isExist(item,newArray){
+//   for(var i = 0; i < newArray.length; i++){
+//     if(item.length > 1){
+      
+//        if(item.substring(0,1) === newArray[i].name){
+//           newArray[i].summary += parseInt(item.substring(2));
+//           return true;
+//        }
+//     }
+//     else if(item === newArray[i].name){
+//       newArray[i].summary++;
+//       return true;
+//     }
+//   }
+//   return false;
+// }
+
+// 　　　　
+
+
+
+function count_same_elements(collection) {
+     var newArray = [];
+     var resp = /-/;
+     var resq = /[/\d/]/;
+     var resr = /:/;
+   for(var i = 0; i < collection.length; i++) 
+   {
+     
+      var item = collection[i];
+      var s = isExist(item,newArray);//如果新数组中元素不存在就添加
+          
+   }
+   return newArray;
+ }
+ 
+ 
+function isExist(item,newArray){
+  for(var i = 0; i < newArray.length; i++){
+    
+    
+    if(item.length > 1){
+       if(item.substring(0,1) === newArray[i].name){
+          newArray[i].summary += parseInt(item.substring(2));
+           return true ;
+       }
+    }
+    else if(item === newArray[i].name){
+      newArray[i].summary++;
+      return true ;
+    }
+  }
+    
+   var str = {};   
+  if(item.length > 1 && i === newArray.length)
+  {
+    str.name = item[0];
+    str.summary = parseInt(item.substring(2));//这儿一定要是注意，在获取数字时，如果是两位数的，就要写substring的第二个参数
+    newArray.push(str);
+  } 
+  else　if(item.length == 1 && i === newArray.length){
+    str.name = item;
+        str.summary = 1;
+        newArray.push(str);
+  }
+  return true; 
+}
+
+　　　　　 　 
+
+
+
